@@ -5,6 +5,7 @@ namespace PetShop.Models
     public class Cat
     {
         public int Id { get; set; } = ++Global.CatId;
-        public string Name { get; set; } = string.Empty;
+        public int Age { get; set; }
+        public int BreedId { get; set; }
     }
 }
