@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace FirstProjectMakhsudov.Controllers
+namespace PetShop.Controllers
 {
     [Route("[controller]")]
     [ApiController]

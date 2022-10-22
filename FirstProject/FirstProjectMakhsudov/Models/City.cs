@@ -1,4 +1,6 @@
-﻿namespace FirstProjectMakhsudov.Models
+﻿using PetShop.Services;
+
+namespace PetShop.Models
 {
     public class City
     {

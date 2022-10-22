@@ -1,6 +1,6 @@
-﻿using FirstProjectMakhsudov.Models;
+﻿using PetShop.Models;
 
-namespace FirstProjectMakhsudov.Services
+namespace PetShop.Services
 {
     public class Database
     {

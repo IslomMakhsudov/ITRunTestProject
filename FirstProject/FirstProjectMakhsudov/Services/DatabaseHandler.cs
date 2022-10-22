@@ -1,4 +1,6 @@
-﻿namespace FirstProjectMakhsudov.Services
+﻿using PetShop.Models;
+
+namespace PetShop.Services
 {
     public class DatabaseHandler
     {

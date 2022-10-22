@@ -1,4 +1,4 @@
-﻿namespace FirstProjectMakhsudov.Services
+﻿namespace PetShop.Services
 {
     public static class Global
     {
