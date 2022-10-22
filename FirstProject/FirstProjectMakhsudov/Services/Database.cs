@@ -20,6 +20,11 @@ namespace PetShop.Services
             return null;
         }
 
+        public List<Person> GetAllPersons()
+        {
+            return _people.Values.ToList();
+        }
+
         public void AddCountry(Country country)
         {
             _countries.Add(country.Id, country);
