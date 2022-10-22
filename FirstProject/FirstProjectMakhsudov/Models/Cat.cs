@@ -2,10 +2,9 @@
 
 namespace PetShop.Models
 {
-    public class City
+    public class Cat
     {
-        public int Id { get; set; } = ++Global.CityId;
+        public int Id { get; set; } = ++Global.CatId;
         public string Name { get; set; } = string.Empty;
-
     }
 }

@@ -9,5 +9,6 @@ namespace PetShop.Models
         public string Login { get; set; } = string.Empty;
         public string Password { get; set; } = string.Empty;
         public Guid ExternalId { get; set; } = Guid.NewGuid();
+        public int RoleId { get; set; } = 2;
     }
 }

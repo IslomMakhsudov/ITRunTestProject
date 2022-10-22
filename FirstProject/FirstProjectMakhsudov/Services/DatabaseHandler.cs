@@ -16,18 +16,18 @@ namespace PetShop.Services
             _database.AddPerson(new Person { UserName = "max", Login = "max1", Password = "12345" });
             _database.AddPerson(new Person { UserName = "ben", Login = "ben1", Password = "12345" });
 
-            _database.AddCity(new City { Name = "Khujand" });
-            _database.AddCity(new City { Name = "Dushanbe" });
-            _database.AddCity(new City { Name = "Isfara" });
-            _database.AddCity(new City { Name = "Konibodom" });
-            _database.AddCity(new City { Name = "Mastcho" });
-            _database.AddCity(new City { Name = "Zafarobod" });
-            _database.AddCity(new City { Name = "Spitamen" });
+            _database.AddCity(new Dog { Name = "Khujand" });
+            _database.AddCity(new Dog { Name = "Dushanbe" });
+            _database.AddCity(new Dog { Name = "Isfara" });
+            _database.AddCity(new Dog { Name = "Konibodom" });
+            _database.AddCity(new Dog { Name = "Mastcho" });
+            _database.AddCity(new Dog { Name = "Zafarobod" });
+            _database.AddCity(new Dog { Name = "Spitamen" });
 
-            _database.AddCountry(new Country { Name = "Tajikistan"});
-            _database.AddCountry(new Country { Name = "Russia"});
-            _database.AddCountry(new Country { Name = "USA"});
-            _database.AddCountry(new Country { Name = "Japan"});
+            _database.AddCountry(new Cat { Name = "Tajikistan"});
+            _database.AddCountry(new Cat { Name = "Russia"});
+            _database.AddCountry(new Cat { Name = "USA"});
+            _database.AddCountry(new Cat { Name = "Japan"});
         }
     }
 }
