@@ -12,11 +12,21 @@ namespace PetShop.Controllers
             return "Index page";
         }
 
-        [Route("login/")]
-        public string Login()
+        [Route("registration/")]
+        public void Registration()
         {
+            var registrService = new RegistrationService();
+            var database = new Database();
 
-            return "Login successful!";
+            registrService.PersonRegistration();
+            Results.Ok(database.GetAllPersons().Count.ToString());
+
+        }
+        [Route("login/")]
+        public void Login()
+        {
+            var login = new LoginService();
+            Results.Redirect(login.PersonLogin());
         }
     }
 }

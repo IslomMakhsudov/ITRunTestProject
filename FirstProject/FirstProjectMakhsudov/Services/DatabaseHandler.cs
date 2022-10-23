@@ -16,7 +16,7 @@ namespace PetShop.Services
             _database.AddPerson(new Person { UserName = "max", Login = "max1", Password = "12345" });
             _database.AddPerson(new Person { UserName = "ben", Login = "ben1", Password = "12345" });
 
-            _database.AddCity(new Dog { Name = "Khujand" });
+            /*_database.AddCity(new Dog { Name = "Khujand" });
             _database.AddCity(new Dog { Name = "Dushanbe" });
             _database.AddCity(new Dog { Name = "Isfara" });
             _database.AddCity(new Dog { Name = "Konibodom" });
@@ -27,7 +27,7 @@ namespace PetShop.Services
             _database.AddCountry(new Cat { Name = "Tajikistan"});
             _database.AddCountry(new Cat { Name = "Russia"});
             _database.AddCountry(new Cat { Name = "USA"});
-            _database.AddCountry(new Cat { Name = "Japan"});
+            _database.AddCountry(new Cat { Name = "Japan"});*/
         }
     }
 }
