@@ -4,49 +4,59 @@ namespace PetShop.Services
 {
     public class Database
     {
-        Dictionary<int, Person> _people = new();
-        Dictionary<int, Cat> _countries = new();
-        Dictionary<int, Dog> _cities = new();
+        Dictionary<int, Person> people = new();
+        Dictionary<int, Cat> cats = new();
+        Dictionary<int, Dog> dogs = new();
 
         public void AddPerson(Person person)
         {
-            _people.Add(person.Id, person);
+            people.Add(person.Id, person);
         }
 
         public Person? GetPerson(int id)
         {
-            if(_people.ContainsKey(id))
-                return _people[id];
+            if(people.ContainsKey(id))
+                return people[id];
             return null;
         }
 
         public List<Person> GetAllPersons()
         {
-            return _people.Values.ToList();
+            return people.Values.ToList();
         }
 
-        public void AddCountry(Cat country)
+        public void AddCat(Cat country)
         {
-            _countries.Add(country.Id, country);
+            cats.Add(country.Id, country);
         }
 
-        public Cat? GetCountry(int id)
+        public Cat? GetCat(int id)
         {
-            if (_countries.ContainsKey(id))
-                return _countries[id];
+            if (cats.ContainsKey(id))
+                return cats[id];
             return null;
         }
 
-        public void AddCity(Dog city)
+        public List<Cat> GetCatsByBreed(int id)
         {
-            _cities.Add(city.Id, city);
+            return (List<Cat>)cats.Where(cat => cat.Value.BreedId == id);
         }
 
-        public Dog? GetCity(int id)
+        public void AddCDog(Dog city)
         {
-            if( _cities.ContainsKey(id))
-                return _cities[id];
+            dogs.Add(city.Id, city);
+        }
+
+        public Dog? GetDog(int id)
+        {
+            if( dogs.ContainsKey(id))
+                return dogs[id];
             return null;
+        }
+
+        public List<Dog> GetDogsByBreed(int id)
+        {
+            return (List<Dog>)dogs.Where(dog => dog.Value.BreedId == id);
         }
     }
 }
