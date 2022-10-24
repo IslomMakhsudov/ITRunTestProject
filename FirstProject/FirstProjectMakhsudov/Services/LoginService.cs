@@ -2,31 +2,18 @@
 {
     public class LoginService
     {
-        public LoginService()
+        private readonly Database database;
+        public LoginService(Database database)
         {
-
+            this.database = database;
         }
         public string PersonLogin(HttpRequest httpRequest)
         {
-            var database = new Database();  
-            
-            /*var form = context.Request.Form;
-            if (!form.ContainsKey("email") && !form.ContainsKey("password"))
-                return "Email или Password не установлен";
-
-            string login = form["email"];
-            string password = form["password"];*/
-
-            var person = database.GetAllPersons().FirstOrDefault(x=>x.Login == "Login" && x.Password == "1234");
+            var person = database.GetAllPersons().FirstOrDefault(x => x.Login == httpRequest.Query["Login"] && x.Password == httpRequest.Query["Password"]);
             if (person is null)
-                return "/123";
+                return "/Values/registration";
 
             return "/Values";
-        }
-
-        public void Test(HttpContext context)
-        {
-            
         }
     }
 }

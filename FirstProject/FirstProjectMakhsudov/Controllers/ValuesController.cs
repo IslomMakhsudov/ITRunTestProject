@@ -18,8 +18,7 @@ namespace PetShop.Controllers
             this.database = database;
         }
         public string Index()
-        {
-            
+        {   
             return "Index page";
         }
 
@@ -30,9 +29,9 @@ namespace PetShop.Controllers
             return Ok(database.GetAllPersons().Count.ToString());
         }
         [Route("login")]
-        public void Login()
+        public IActionResult Login()
         {
-            Results.Redirect(loginService.PersonLogin());
+            return Redirect(loginService.PersonLogin(Request));
         }
     }
 }
