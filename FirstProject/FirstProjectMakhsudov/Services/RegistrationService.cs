@@ -1,18 +1,24 @@
-﻿namespace PetShop.Services
+﻿using PetShop.Models.Dto;
+
+namespace PetShop.Services
 {
     public class RegistrationService
     {
-        public Person PersonRegistration()
+        private readonly Database database;
+        public RegistrationService(Database database)
         {
-            var person = new Person();
-            var database = new Database(); 
-            
-            person.Login = "Login";
-            person.Password = "1234";
-
-            person.UserName = "Andrey";
-            person.Age = 19;
-            person.PhoneNumber = "+1234567890";
+            this.database = database;
+        }
+        public Person PersonRegistration(RegistrationDto registration)
+        {
+            var person = new Person
+            {
+                Login = registration.Login,
+                Password = registration.Password,
+                UserName = registration.UserName,
+                Age = registration.Age,
+                PhoneNumber = registration.PhoneNumber
+            };
 
             database.AddPerson(person);
 

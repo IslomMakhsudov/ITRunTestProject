@@ -1,32 +1,38 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using PetShop.Models.Dto;
 
 namespace PetShop.Controllers
 {
-    [Route("[controller]")]
     [ApiController]
+    [Route("[controller]")]
     public class ValuesController : ControllerBase
     {
+        LoginService loginService;
+        RegistrationService registrationService;
+        Database database;
+        public ValuesController(LoginService loginService, RegistrationService registrationService, Database database)
+        {
+            this.loginService = loginService;
+            this.registrationService = registrationService;
+            this.database = database;
+        }
         public string Index()
         {
+            
             return "Index page";
         }
 
-        [Route("registration/")]
-        public void Registration()
+        [Route("registration")]
+        public IActionResult Registration(RegistrationDto registration)
         {
-            var registrService = new RegistrationService();
-            var database = new Database();
-
-            registrService.PersonRegistration();
-            Results.Ok(database.GetAllPersons().Count.ToString());
-
+            registrationService.PersonRegistration(registration);
+            return Ok(database.GetAllPersons().Count.ToString());
         }
-        [Route("login/")]
+        [Route("login")]
         public void Login()
         {
-            var login = new LoginService();
-            Results.Redirect(login.PersonLogin());
+            Results.Redirect(loginService.PersonLogin());
         }
     }
 }

@@ -4,59 +4,59 @@ namespace PetShop.Services
 {
     public class Database
     {
-        Dictionary<int, Person> people = new();
-        Dictionary<int, Cat> cats = new();
-        Dictionary<int, Dog> dogs = new();
+        List<Person> people = new();
+        List<Cat> cats = new();
+        List<Dog> dogs = new();
 
         public void AddPerson(Person person)
         {
-            people.Add(person.Id, person);
+            people.Add(person);
         }
 
         public Person? GetPerson(int id)
         {
-            if(people.ContainsKey(id))
+            if (people.FirstOrDefault(x => x.Id == id) != null)
                 return people[id];
             return null;
         }
 
         public List<Person> GetAllPersons()
         {
-            return people.Values.ToList();
+            return people;
         }
 
         public void AddCat(Cat country)
         {
-            cats.Add(country.Id, country);
+            cats.Add(country);
         }
 
         public Cat? GetCat(int id)
         {
-            if (cats.ContainsKey(id))
+            if (cats.FirstOrDefault(x => x.Id == id) != null)
                 return cats[id];
             return null;
         }
 
         public List<Cat> GetCatsByBreed(int id)
         {
-            return (List<Cat>)cats.Where(cat => cat.Value.BreedId == id);
+            return (List<Cat>)cats.Where(cat => cat.BreedId == id);
         }
 
-        public void AddCDog(Dog city)
+        public void AddCDog(Dog dog)
         {
-            dogs.Add(city.Id, city);
+            dogs.Add(dog);
         }
 
         public Dog? GetDog(int id)
         {
-            if( dogs.ContainsKey(id))
+            if (dogs.FirstOrDefault(x => x.Id == id) != null)
                 return dogs[id];
             return null;
         }
 
         public List<Dog> GetDogsByBreed(int id)
         {
-            return (List<Dog>)dogs.Where(dog => dog.Value.BreedId == id);
+            return (List<Dog>)dogs.Where(dog => dog.BreedId == id);
         }
     }
 }

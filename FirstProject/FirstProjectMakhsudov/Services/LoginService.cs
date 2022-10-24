@@ -2,7 +2,11 @@
 {
     public class LoginService
     {
-        public string PersonLogin()
+        public LoginService()
+        {
+
+        }
+        public string PersonLogin(HttpRequest httpRequest)
         {
             var database = new Database();  
             
@@ -18,6 +22,11 @@
                 return "/123";
 
             return "/Values";
+        }
+
+        public void Test(HttpContext context)
+        {
+            
         }
     }
 }

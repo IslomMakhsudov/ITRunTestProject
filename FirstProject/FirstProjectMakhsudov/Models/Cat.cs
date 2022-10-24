@@ -2,10 +2,9 @@
 
 namespace PetShop.Models
 {
-    public class Cat
+    public class Cat : Animal
     {
         public int Id { get; set; } = ++Global.CatId;
-        public int Age { get; set; }
-        public int BreedId { get; set; }
+
     }
 }
