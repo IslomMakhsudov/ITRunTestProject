@@ -8,6 +8,7 @@ namespace PetShop.Services
         public DatabaseHandler(Database database)
         {
             _database = database;
+            FillDatabase();
         }
 
         public void FillDatabase()

@@ -11,11 +11,13 @@ namespace PetShop.Controllers
         LoginService loginService;
         RegistrationService registrationService;
         Database database;
-        public ValuesController(LoginService loginService, RegistrationService registrationService, Database database)
+        DatabaseHandler databaseHandler;
+        public ValuesController(LoginService loginService, RegistrationService registrationService, Database database, DatabaseHandler databaseHandler)
         {
             this.loginService = loginService;
             this.registrationService = registrationService;
             this.database = database;
+            this.databaseHandler = databaseHandler;
         }
         public string Index()
         {   
@@ -23,15 +25,17 @@ namespace PetShop.Controllers
         }
 
         [Route("registration")]
-        public IActionResult Registration(RegistrationDto registration)
+        public IActionResult Registration([FromBody] RegistrationDto registration)
         {
             registrationService.PersonRegistration(registration);
             return Ok(database.GetAllPersons().Count.ToString());
         }
         [Route("login")]
-        public IActionResult Login()
+        public IActionResult Login([FromQuery] string password, string login)
         {
-            return Redirect(loginService.PersonLogin(Request));
+            bool result = loginService.PersonLogin(password, login);
+            if (result) return Ok();
+            return BadRequest();
         }
     }
 }

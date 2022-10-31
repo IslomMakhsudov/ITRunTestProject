@@ -13,6 +13,6 @@ builder.Services.AddTransient<RegistrationService>();
 var app = builder.Build();
 
 app.UseSession();
-app.UseMiddleware<SessionGuidMiddleware>();
+//app.UseMiddleware<SessionGuidMiddleware>();
 app.MapControllers();
 app.Run();

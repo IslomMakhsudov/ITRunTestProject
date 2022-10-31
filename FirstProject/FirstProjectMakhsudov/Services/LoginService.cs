@@ -7,13 +7,12 @@
         {
             this.database = database;
         }
-        public string PersonLogin(HttpRequest httpRequest)
+        public bool PersonLogin(string password, string login)
         {
-            var person = database.GetAllPersons().FirstOrDefault(x => x.Login == httpRequest.Query["Login"] && x.Password == httpRequest.Query["Password"]);
+            var person = database.GetAllPersons().FirstOrDefault(x => x.Login == login && x.Password == password);
             if (person is null)
-                return "/Values/registration";
-
-            return "/Values";
+                return false;
+            return true;
         }
     }
 }
